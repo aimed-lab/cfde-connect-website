@@ -3,46 +3,49 @@ import { CheckCircle2, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import aboutBg from '@/assets/images/about-bg.jpg';
+import logoUab from '@/assets/images/logo-uab.png';
+import logoCu from '@/assets/images/logo-cu-anschutz.png';
+import logoUcla from '@/assets/images/logo-ucla.png';
 
 const WORK_AREAS = [
   {
     title: 'Inter-Consortium Communication & Events',
     items: [
-      'Organizing cross-program meetings and workshops',
-      'Managing CFDE all-hands and working group sessions',
-      'Facilitating communication channels across consortia',
+      'Organizing cross-program meetings, workshops, and all-hands sessions',
+      'Managing working group coordination and stakeholder discussions',
+      'Facilitating communication channels across CFDE consortia',
     ],
   },
   {
-    title: 'Operation Guidelines & Management Systems',
+    title: 'Operations & Project Management',
     items: [
       'Developing CFDE-wide standard operating procedures',
-      'Managing project tracking and reporting systems',
-      'Coordinating governance and compliance processes',
+      'Managing project tracking using agile project management methods',
+      'Coordinating governance, compliance, and reporting processes',
     ],
   },
   {
-    title: 'Communication Strategies',
+    title: 'Community Engagement & Outreach',
     items: [
       'Maintaining CFDE community platforms and portals',
-      'Creating newsletters, announcements, and updates',
-      'Managing external communications and outreach',
+      'Creating newsletters, announcements, and program updates',
+      'Supporting onboarding of new community members and programs',
     ],
   },
   {
-    title: 'Team Science Practices',
+    title: 'Data Sustainability & Evaluation',
     items: [
-      'Advancing best practices for distributed collaboration',
-      'Supporting onboarding and training for community members',
-      'Promoting inclusive and equitable team environments',
+      'Leading long-term sustainability planning for CFDE data resources',
+      'Collecting standardized metrics — grants, publications, citations',
+      'Demonstrating collective impact of Common Fund investments to NIH',
     ],
   },
 ];
 
 const INSTITUTIONS = [
-  { name: 'University of Alabama at Birmingham (UAB)', role: 'Administrative & Informatics Lead' },
-  { name: 'University of Colorado Anschutz (CU Anschutz)', role: 'Evaluation Core Lead' },
-  { name: 'University of California, Los Angeles (UCLA)', role: 'Partner Institution' },
+  { name: 'University of Alabama at Birmingham (UAB)', role: 'Administrative Core Lead', logo: logoUab },
+  { name: 'University of Colorado Anschutz Medical Campus', role: 'Evaluation Core Lead', logo: logoCu },
+  { name: 'University of California, Los Angeles (UCLA)', role: 'Sustainability Core Lead', logo: logoUcla },
 ];
 
 export default function About() {
@@ -79,29 +82,32 @@ export default function About() {
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 The NIH Common Fund Data Ecosystem (CFDE) is an initiative to make data from NIH Common
-                Fund programs more findable, accessible, interoperable, and reusable (FAIR). With 19
-                programs generating vast amounts of biomedical data, the CFDE creates the infrastructure
-                to connect and leverage these resources.
+                Fund programs more findable, accessible, interoperable, and reusable (FAIR). The Common
+                Fund supports a diverse portfolio of programs that generate vast amounts of biomedical
+                data — the CFDE creates the infrastructure to connect and leverage these resources.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                The CFDE Integration &amp; Coordination Center (ICC) serves as the operational backbone
-                of this ecosystem — coordinating across programs, facilitating community building, and
-                ensuring long-term sustainability of CFDE resources.
+                The CFDE Integration &amp; Coordination Center (CONNECT ICC) coordinates stakeholder
+                activities and facilitates collaboration within the CFDE, enhancing the potential for
+                biomedical research transformation through platform coordination and data sustainability.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 CFDE Connect, our community portal, enables researchers and staff across all CFDE-affiliated
-                programs to connect, collaborate, and stay informed.
+                programs to connect with colleagues, access resources, and participate in community events.
               </p>
             </div>
             <div className="bg-muted/30 rounded-2xl p-8 border border-border">
-              <h3 className="font-semibold text-foreground mb-6">Partner Institutions</h3>
-              <div className="space-y-4">
-                {INSTITUTIONS.map(({ name, role }) => (
+              <h3 className="font-semibold text-foreground mb-6">Three Integrated Cores</h3>
+              <div className="space-y-5">
+                {INSTITUTIONS.map(({ name, role, logo }) => (
                   <div key={name} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground text-sm">{name}</p>
-                      <p className="text-xs text-muted-foreground">{role}</p>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="font-medium text-foreground text-sm">{name}</p>
+                        <img src={logo} alt={name} className="h-5 w-auto object-contain shrink-0 opacity-70" />
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-0.5">{role}</p>
                     </div>
                   </div>
                 ))}

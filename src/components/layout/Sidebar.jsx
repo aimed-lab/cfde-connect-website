@@ -6,16 +6,16 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
 const baseNavItems = [
-  { path: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { path: '/directory', label: 'Directory', icon: Users },
-  { path: '/messages', label: 'Messages', icon: MessageSquare },
-  { path: '/events', label: 'Events', icon: Calendar },
-  { path: '/profile', label: 'My Profile', icon: User },
-  { path: '/data-flow', label: 'Data Flow', icon: GitBranch },
+  { path: '/portal', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/portal/directory', label: 'Directory', icon: Users },
+  { path: '/portal/messages', label: 'Messages', icon: MessageSquare },
+  { path: '/portal/events', label: 'Events', icon: Calendar },
+  { path: '/portal/profile', label: 'My Profile', icon: User },
+  { path: '/portal/data-flow', label: 'Data Flow', icon: GitBranch },
 ];
 
 const adminNavItems = [
-  { path: '/meeting-notes', label: 'Meeting Notes', icon: FileText },
+  { path: '/portal/meeting-notes', label: 'Meeting Notes', icon: FileText },
 ];
 
 export default function Sidebar({ isOpen, setIsOpen }) {
@@ -56,7 +56,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         {/* Navigation */}
         <nav className="flex-1 p-4 space-y-1">
           {navItems.map(({ path, label, icon: NavIcon }) => {
-            const isActive = path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+            const isActive = path === '/portal' ? location.pathname === '/portal' : location.pathname.startsWith(path);
             return (
               <Link
                 key={path}

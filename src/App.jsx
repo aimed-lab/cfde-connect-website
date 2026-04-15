@@ -2,10 +2,23 @@ import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import PageNotFound from './lib/PageNotFound';
 
+// Public layout + pages
+import PublicLayout from '@/components/layout/PublicLayout';
+import Home from '@/pages/public/Home';
+import About from '@/pages/public/About';
+import Programs from '@/pages/public/Programs';
+import Centers from '@/pages/public/Centers';
+import Team from '@/pages/public/Team';
+import PublicEvents from '@/pages/public/PublicEvents';
+import Contact from '@/pages/public/Contact';
+import Privacy from '@/pages/public/Privacy';
+import Terms from '@/pages/public/Terms';
+
+// Portal layout + pages
 import AppLayout from '@/components/layout/AppLayout';
 import Dashboard from '@/pages/Dashboard';
 import Directory from '@/pages/Directory';
@@ -16,7 +29,7 @@ import Events from '@/pages/Events';
 import MeetingNotes from '@/pages/MeetingNotes';
 import DataFlow from '@/pages/DataFlow';
 
-const AuthenticatedApp = () => {
+const PortalApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
   if (isLoadingPublicSettings || isLoadingAuth) {
@@ -42,14 +55,14 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/directory" element={<Directory />} />
-        <Route path="/member/:id" element={<MemberProfile />} />
-        <Route path="/profile" element={<MyProfile />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/meeting-notes" element={<MeetingNotes />} />
-        <Route path="/data-flow" element={<DataFlow />} />
+        <Route index element={<Dashboard />} />
+        <Route path="directory" element={<Directory />} />
+        <Route path="member/:id" element={<MemberProfile />} />
+        <Route path="profile" element={<MyProfile />} />
+        <Route path="messages" element={<Messages />} />
+        <Route path="events" element={<Events />} />
+        <Route path="meeting-notes" element={<MeetingNotes />} />
+        <Route path="data-flow" element={<DataFlow />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
@@ -58,15 +71,38 @@ const AuthenticatedApp = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <AuthenticatedApp />
-        </Router>
+    <QueryClientProvider client={queryClientInstance}>
+      <Router>
+        <Routes>
+          {/* Public website */}
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/centers" element={<Centers />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/events" element={<PublicEvents />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+          </Route>
+
+          {/* Member portal — auth-gated */}
+          <Route
+            path="/portal/*"
+            element={
+              <AuthProvider>
+                <PortalApp />
+              </AuthProvider>
+            }
+          />
+
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
         <Toaster />
-      </QueryClientProvider>
-    </AuthProvider>
-  )
+      </Router>
+    </QueryClientProvider>
+  );
 }
 
 export default App

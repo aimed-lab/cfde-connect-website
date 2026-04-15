@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, MessageSquare, Calendar, User, X, LogOut, FileText, GitBranch } from 'lucide-react';
+import { LayoutDashboard, Users, MessageSquare, Calendar, User, X, LogOut, FileText, GitBranch, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
@@ -78,7 +78,14 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         </nav>
 
         {/* Footer */}
-        <div className="p-4 border-t border-sidebar-border">
+        <div className="p-4 border-t border-sidebar-border space-y-1">
+          <Link
+            to="/"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-colors w-full"
+          >
+            <Globe className="h-4 w-4" />
+            Public Site
+          </Link>
           <button
             onClick={() => base44.auth.logout()}
             className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-colors w-full"

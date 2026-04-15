@@ -79,7 +79,7 @@ export default function MemberProfile() {
     return (
       <div className="p-6 lg:p-8 max-w-3xl mx-auto text-center py-20">
         <p className="text-muted-foreground">Profile not found</p>
-        <Link to="/directory"><Button variant="outline" className="mt-4">Back to Directory</Button></Link>
+        <Link to="/portal/directory"><Button variant="outline" className="mt-4">Back to Directory</Button></Link>
       </div>
     );
   }
@@ -89,7 +89,7 @@ export default function MemberProfile() {
 
   return (
     <div className="p-6 lg:p-8 max-w-3xl mx-auto space-y-6">
-      <Link to="/directory" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+      <Link to="/portal/directory" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
         <ArrowLeft className="h-4 w-4" /> Back to Directory
       </Link>
 
@@ -118,7 +118,7 @@ export default function MemberProfile() {
             </div>
             <div className="flex items-center gap-2 mt-2 sm:mt-0">
               {user?.email !== profile.user_email && (
-                <Link to={`/messages?to=${profile.user_email}&name=${encodeURIComponent(profile.full_name)}`}>
+                <Link to={`/portal/messages?to=${profile.user_email}&name=${encodeURIComponent(profile.full_name)}`}>
                   <Button className="gap-2">
                     <MessageSquare className="h-4 w-4" />
                     Message

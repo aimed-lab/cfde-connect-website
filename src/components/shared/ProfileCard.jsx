@@ -29,7 +29,7 @@ export default function ProfileCard({ profile, currentUserEmail, isAdmin, onDele
           <div className="flex items-start justify-between gap-2">
             <div>
               <Link
-                to={`/member/${profile.id}`}
+                to={`/portal/member/${profile.id}`}
                 className="font-semibold text-foreground hover:text-primary transition-colors"
               >
                 {profile.full_name}
@@ -77,7 +77,7 @@ export default function ProfileCard({ profile, currentUserEmail, isAdmin, onDele
 
           <div className="mt-3 flex gap-2">
             {currentUserEmail && profile.user_email !== currentUserEmail && (
-              <Link to={`/messages?to=${profile.user_email}&name=${encodeURIComponent(profile.full_name)}`}>
+              <Link to={`/portal/messages?to=${profile.user_email}&name=${encodeURIComponent(profile.full_name)}`}>
                 <Button size="sm" variant="outline" className="h-8 text-xs">
                   <MessageSquare className="h-3.5 w-3.5 mr-1.5" />
                   Message
@@ -86,7 +86,7 @@ export default function ProfileCard({ profile, currentUserEmail, isAdmin, onDele
             )}
             {isAdmin && (
               <>
-                <Link to={`/member/${profile.id}`}>
+                <Link to={`/portal/member/${profile.id}`}>
                   <Button size="sm" variant="outline" className="h-8 text-xs">
                     <Pencil className="h-3.5 w-3.5 mr-1.5" />
                     Edit

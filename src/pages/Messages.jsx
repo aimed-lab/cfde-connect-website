@@ -57,7 +57,7 @@ export default function Messages() {
         })();
       }
       // Clear URL params
-      window.history.replaceState({}, '', '/messages');
+      window.history.replaceState({}, '', '/portal/messages');
     }
   }, [toEmail, user, conversations, convosLoading]);
 

@@ -67,7 +67,7 @@ export default function Dashboard() {
             Connect with researchers across the NIH Common Fund Data Ecosystem (CFDE) — spanning 19 programs and 5 centers. Discover collaborators, share knowledge, and build the future of FAIR biomedical data together.
           </p>
           {!myProfile && (
-            <Link to="/profile">
+            <Link to="/portal/profile">
               <Button className="mt-5 bg-white text-primary hover:bg-white/90 font-medium">
                 <Sparkles className="h-4 w-4 mr-2" />
                 Set Up Your Profile
@@ -150,7 +150,7 @@ export default function Dashboard() {
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Upcoming Events</h2>
-            <Link to="/events" className="text-sm text-primary hover:underline flex items-center gap-1">
+            <Link to="/portal/events" className="text-sm text-primary hover:underline flex items-center gap-1">
               View all <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -168,7 +168,7 @@ export default function Dashboard() {
             <Card className="p-8 text-center text-muted-foreground">
               <Calendar className="h-10 w-10 mx-auto mb-3 opacity-30" />
               <p className="text-sm">No upcoming events yet</p>
-              <Link to="/events">
+              <Link to="/portal/events">
                 <Button variant="outline" size="sm" className="mt-3">Create an Event</Button>
               </Link>
             </Card>
@@ -179,7 +179,7 @@ export default function Dashboard() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Suggested Connections</h2>
-            <Link to="/directory" className="text-sm text-primary hover:underline flex items-center gap-1">
+            <Link to="/portal/directory" className="text-sm text-primary hover:underline flex items-center gap-1">
               Browse <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -201,7 +201,7 @@ export default function Dashboard() {
                         </AvatarFallback>
                       </Avatar>
                       <div className="flex-1 min-w-0">
-                        <Link to={`/member/${profile.id}`} className="font-medium text-sm hover:text-primary transition-colors">
+                        <Link to={`/portal/member/${profile.id}`} className="font-medium text-sm hover:text-primary transition-colors">
                           {profile.full_name}
                         </Link>
                         <p className="text-xs text-muted-foreground truncate">{profile.institution}</p>
@@ -226,7 +226,7 @@ export default function Dashboard() {
         <h2 className="text-lg font-semibold">CFDE Tools & Resources</h2>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
           {/* Data Flow — internal page */}
-          <Link to="/data-flow" className="group">
+          <Link to="/portal/data-flow" className="group">
             <Card className="p-4 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer h-full">
               <div className="flex items-start justify-between gap-2">
                 <div>

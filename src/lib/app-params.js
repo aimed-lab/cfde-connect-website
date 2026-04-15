@@ -1,6 +1,20 @@
 const isNode = typeof window === 'undefined';
-const windowObj = isNode ? { localStorage: new Map() } : window;
-const storage = windowObj.localStorage;
+
+// localStorage access can throw a SecurityError in some browser contexts
+// (strict privacy settings, blocked storage). Fall back to a compatible in-memory store.
+const inMemoryStorage = {
+  _data: {},
+  getItem(key) { return Object.prototype.hasOwnProperty.call(this._data, key) ? this._data[key] : null; },
+  setItem(key, value) { this._data[key] = String(value); },
+  removeItem(key) { delete this._data[key]; },
+};
+
+let storage;
+try {
+  storage = isNode ? inMemoryStorage : window.localStorage;
+} catch (e) {
+  storage = inMemoryStorage;
+}
 
 const toSnakeCase = (str) => {
 	return str.replace(/([A-Z])/g, '_$1').toLowerCase();

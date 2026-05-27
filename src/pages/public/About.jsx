@@ -45,7 +45,8 @@ const WORK_AREAS = [
 const INSTITUTIONS = [
   { name: 'University of Alabama at Birmingham (UAB)', role: 'Administrative Core Lead', logo: logoUab },
   { name: 'University of Colorado Anschutz Medical Campus', role: 'Evaluation Core Lead', logo: logoCu },
-  { name: 'University of California, Los Angeles (UCLA)', role: 'Sustainability Core Lead', logo: logoUcla },
+  { name: 'University of California, Los Angeles (UCLA)', role: 'Sustainability Core Co-Lead', logo: logoUcla },
+  { name: 'University of Arizona', role: 'Sustainability Core Co-Lead', logo: null },
 ];
 
 export default function About() {
@@ -105,7 +106,9 @@ export default function About() {
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-2">
                         <p className="font-medium text-foreground text-sm">{name}</p>
-                        <img src={logo} alt={name} className="h-5 w-auto object-contain shrink-0 opacity-70" />
+                        {logo && (
+                          <img src={logo} alt={name} className="h-5 w-auto object-contain shrink-0 opacity-70" />
+                        )}
                       </div>
                       <p className="text-xs text-muted-foreground mt-0.5">{role}</p>
                     </div>

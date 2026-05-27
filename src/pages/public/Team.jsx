@@ -65,10 +65,19 @@ const EVAL_CORE = [
 const SUSTAINABILITY_CORE = [
   {
     name: 'Sustainability Core Team',
-    title: 'Sustainability Core Lead',
+    title: 'Sustainability Core Co-Lead',
     institution: 'University of California, Los Angeles',
     department: 'CFDE Integration & Coordination Center',
     bio: 'The UCLA Sustainability Core leads long-term sustainability planning for CFDE data resources and platforms, ensuring continued value and access for the biomedical research community beyond the funding period.',
+    photo: null,
+    links: [],
+  },
+  {
+    name: 'Sustainability Core Team',
+    title: 'Sustainability Core Co-Lead',
+    institution: 'University of Arizona',
+    department: 'CFDE Integration & Coordination Center',
+    bio: 'The University of Arizona partners on the Sustainability Core, contributing to long-term planning and stewardship of CFDE data resources and platforms.',
     photo: null,
     links: [],
   },
@@ -96,8 +105,11 @@ const CORES = [
   {
     id: 'sustainability',
     name: 'Sustainability Core',
-    institution: 'University of California, Los Angeles',
+    institution: 'University of California, Los Angeles · University of Arizona',
     logo: logoUcla,
+    partners: [
+      { name: 'University of Arizona', logo: null },
+    ],
     description:
       'Leads long-term sustainability planning for CFDE data resources and platforms, ensuring continued value and access for the biomedical research community.',
     members: SUSTAINABILITY_CORE,
@@ -171,13 +183,13 @@ export default function Team() {
           </h1>
           <p className="text-white/70 text-lg max-w-xl mx-auto">
             The CFDE Integration &amp; Coordination Center is staffed by researchers and
-            professionals across three partner institutions.
+            professionals across four partner institutions.
           </p>
         </div>
       </section>
 
       {/* Cores */}
-      {CORES.map(({ id, name, institution, logo, description, members }, index) => (
+      {CORES.map(({ id, name, institution, logo, partners, description, members }, index) => (
         <section
           key={id}
           id={id}
@@ -191,7 +203,16 @@ export default function Team() {
                 <p className="text-sm text-primary font-medium mt-1">{institution}</p>
                 <p className="text-muted-foreground mt-2 max-w-2xl">{description}</p>
               </div>
-              <img src={logo} alt={institution} className="h-8 w-auto object-contain shrink-0 mt-1" />
+              <div className="flex items-center gap-3 shrink-0 mt-1">
+                {logo && <img src={logo} alt={institution} className="h-8 w-auto object-contain" />}
+                {partners?.map((p) =>
+                  p.logo ? (
+                    <img key={p.name} src={p.logo} alt={p.name} className="h-8 w-auto object-contain" />
+                  ) : (
+                    <span key={p.name} className="text-xs font-medium text-muted-foreground">{p.name}</span>
+                  )
+                )}
+              </div>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {members.map((person) => (

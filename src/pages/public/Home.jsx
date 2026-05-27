@@ -34,7 +34,7 @@ const CORES = [
   },
   {
     name: 'Sustainability Core',
-    institution: 'University of California, Los Angeles',
+    institution: 'UCLA · University of Arizona',
     logo: logoUcla,
     desc: 'Leads long-term sustainability planning for CFDE data resources and platforms, ensuring continued value and access for the biomedical research community.',
     to: '/team#sustainability',
@@ -116,7 +116,7 @@ export default function Home() {
               CONNECT ICC Structure
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-              The Integration &amp; Coordination Center is built on three cores spanning three
+              The Integration &amp; Coordination Center is built on three cores spanning four
               leading research institutions.
             </p>
           </div>

@@ -2,32 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Polyfill localStorage before any modules load.
-         Some browsers block storage access (strict privacy settings),
-         which causes the Base44 SDK to crash before React mounts. -->
-    <script>
-      (function () {
-        var blocked = false;
-        try { window.localStorage; } catch (e) { blocked = true; }
-        if (blocked) {
-          var _d = {};
-          var _mem = {
-            getItem:    function (k) { return Object.prototype.hasOwnProperty.call(_d, k) ? _d[k] : null; },
-            setItem:    function (k, v) { _d[k] = String(v); },
-            removeItem: function (k) { delete _d[k]; },
-            clear:      function ()    { _d = {}; },
-            key:        function (i)   { return Object.keys(_d)[i] || null; }
-          };
-          Object.defineProperty(_mem, 'length', { get: function () { return Object.keys(_d).length; } });
-          try {
-            Object.defineProperty(window, 'localStorage', { get: function () { return _mem; }, configurable: true });
-          } catch (e2) { /* browser won't allow override */ }
-        }
-      }());
-    </script>
-    <link rel="icon" type="image/png" href="/src/assets/images/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CFDE Connect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>CFDE CONNECT — Integration &amp; Coordination Center</title>
+    <meta name="description" content="CFDE CONNECT is the Integration and Coordination Center (ICC) of the NIH Common Fund Data Ecosystem — transforming data into discovery and building a connected biomedical future." />
+    <meta name="theme-color" content="#132a44" />
+    <link rel="icon" type="image/png" href="/images/logos/cfde-connect-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>

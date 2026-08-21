@@ -86,6 +86,14 @@ a{color:var(--blue-dark)}
 }
 .nav a:hover, .nav .nav__item > button:hover{background:var(--tint); color:var(--navy-900)}
 .nav a.is-active{color:var(--blue-dark); background:var(--tint)}
+
+/* Portal call-to-action — the one filled item in the bar. */
+.nav a.nav__cta{
+  background:var(--blue); color:#fff; margin-left:8px;
+  box-shadow:0 2px 10px rgba(31,111,178,.3);
+}
+.nav a.nav__cta:hover{background:var(--blue-dark); color:#fff}
+.nav a.nav__cta svg{width:13px; height:13px; stroke:currentColor; stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round}
 .nav__item{position:relative}
 .nav__item > button svg{width:12px; height:12px; stroke:currentColor; stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .18s ease}
 .nav__item.is-open > button svg{transform:rotate(180deg)}
@@ -576,6 +584,7 @@ a{color:var(--blue-dark)}
   }
   .nav.is-open{display:flex}
   .nav a, .nav .nav__item > button{padding:13px 12px; font-size:1rem; border-radius:10px; width:100%; justify-content:space-between}
+  .nav a.nav__cta{margin:10px 0 0; justify-content:center}
   .nav__menu{
     position:static; min-width:0; border:0; box-shadow:none; padding:0 0 6px 14px;
   }

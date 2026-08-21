@@ -26,7 +26,6 @@ npm run lint      # eslint
 | Path | Page |
 | --- | --- |
 | `/` | Home — mission, interactive CFDE wheel, cores, partners |
-| `/meetings/fall-2026` | CFDE Fall 2026 Meeting (registration, venue, hotels) |
 | `/meetings/spring-2026-recap` | CFDE Spring 2026 Meeting Recap |
 | `/meetings/fall-2025-recap` | CFDE Fall 2025 Meeting Recap |
 | `/meetings/spring-2025` | CFDE Spring 2025 Meeting |
@@ -38,7 +37,16 @@ npm run lint      # eslint
 | `/news/cfde-at-ashg-2025` | CFDE at ASHG 2025 |
 | `/calendar` | Community calendar (Google Calendar embed) |
 
-The **Service** menu links out to the Join/Collaborate Google Form and the Talent Knowledge Graph.
+### External links
+
+These live outside this app and are linked from the nav rather than rendered here:
+
+| Link | Destination |
+| --- | --- |
+| Meetings → CFDE Fall 2026 Meeting | <https://fall2026.cfdeconnect.org/> |
+| Service → Join / Collaborate | Google Form |
+| Service → Talent Knowledge Graph | <https://cfdegraph.vercel.app/> |
+| Portal (nav button) | <https://portal.cfdeconnect.org/> |
 
 ## Structure
 

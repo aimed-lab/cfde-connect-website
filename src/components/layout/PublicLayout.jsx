@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const MEETINGS = [
-  { label: 'CFDE Fall 2026 Meeting', to: '/meetings/fall-2026', note: 'October 13–14, 2026 · UC San Diego' },
+  { label: 'CFDE Fall 2026 Meeting', href: 'https://fall2026.cfdeconnect.org/', note: 'October 13–14, 2026 · UC San Diego' },
   { label: 'CFDE Spring 2026 Meeting Recap', to: '/meetings/spring-2026-recap', note: 'March 24–25, 2026 · Rockville, MD' },
   { label: 'CFDE Fall 2025 Meeting Recap', to: '/meetings/fall-2025-recap', note: 'October 27–28, 2025' },
   { label: 'CFDE Spring 2025 Meeting', to: '/meetings/spring-2025', note: 'March 25–26, 2025 · Bethesda, MD' },
@@ -116,6 +116,10 @@ function Topbar() {
           <NavDropdown id="service" label="Service" items={SERVICE} openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <NavLink to="/news" className={({ isActive }) => (isActive ? 'is-active' : undefined)}>News</NavLink>
           <NavLink to="/calendar" className={({ isActive }) => (isActive ? 'is-active' : undefined)}>Calendar</NavLink>
+          <a className="nav__cta" href="https://portal.cfdeconnect.org/" target="_blank" rel="noopener noreferrer">
+            Portal
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" /></svg>
+          </a>
         </nav>
       </div>
     </header>

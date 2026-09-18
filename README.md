@@ -45,7 +45,6 @@ These live outside this app and are linked from the nav rather than rendered her
 | --- | --- |
 | Meetings → CFDE Fall 2026 Meeting | <https://fall2026.cfdeconnect.org/> |
 | Service → Join / Collaborate | Google Form |
-| Service → Talent Knowledge Graph | <https://cfdegraph.vercel.app/> |
 | Portal (nav button) | <https://portal.cfdeconnect.org/> |
 
 ## Structure

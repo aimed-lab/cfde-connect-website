@@ -26,13 +26,47 @@ function Chevron() {
   );
 }
 
+// How long a hover-opened menu stays up after the pointer leaves it. Gives the
+// user room to drift or overshoot on the way to a sub-item without the menu
+// vanishing underneath them.
+const HOVER_CLOSE_DELAY_MS = 300;
+
+const isDesktop = () => window.matchMedia('(min-width: 761px)').matches;
+
 function NavDropdown({ id, label, items, openMenu, setOpenMenu }) {
   const open = openMenu === id;
+  const closeTimer = useRef(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => {
+      // Only close if this is still the open menu — the pointer may have moved
+      // straight on to a sibling dropdown, which must not be closed by our timer.
+      setOpenMenu((current) => (current === id ? null : current));
+    }, HOVER_CLOSE_DELAY_MS);
+  };
+
+  // Don't leave a timer running after unmount (route change, mobile resize).
+  useEffect(() => cancelClose, []);
+
   return (
     <div
       className={`nav__item${open ? ' is-open' : ''}`}
-      onMouseEnter={() => window.matchMedia('(min-width: 761px)').matches && setOpenMenu(id)}
-      onMouseLeave={() => window.matchMedia('(min-width: 761px)').matches && setOpenMenu(null)}
+      onMouseEnter={() => {
+        if (!isDesktop()) return;
+        cancelClose();
+        setOpenMenu(id);
+      }}
+      onMouseLeave={() => {
+        if (isDesktop()) scheduleClose();
+      }}
     >
       <button
         type="button"

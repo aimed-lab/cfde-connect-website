@@ -15,9 +15,6 @@ export default function AdministrativeCore() {
             Professor, Department of Biomedical Informatics and Data Science.
             Director, Systems Pharmacology AI Research Center (SPARC).
           </Person>
-          <Person img="/images/team/swathi-thaker.png" name="Swathi Thaker, Ph.D." org="University of Alabama at Birmingham">
-            Program Operations Manager, Systems Pharmacology AI Research Center (SPARC).
-          </Person>
           <Person img="/images/team/zhandos-sembay.png" name="Zhandos Sembay" org="University of Alabama at Birmingham">
             Informatics Analyst, Systems Pharmacology AI Research Center (SPARC).
           </Person>

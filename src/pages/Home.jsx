@@ -134,8 +134,7 @@ export default function Home() {
           <a href="https://www.uab.edu/" target="_blank" rel="noopener noreferrer"><img src="/images/logos/uab.png" alt="The University of Alabama at Birmingham" /></a>
           <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer"><img src="/images/logos/ucla.png" alt="UCLA" /></a>
           <a href="https://www.cuanschutz.edu/" target="_blank" rel="noopener noreferrer"><img src="/images/logos/cu-anschutz.png" alt="University of Colorado Anschutz Medical Campus" /></a>
-          {/* Awaiting an official brand asset — see README. */}
-          <a className="partners__name" href="https://www.arizona.edu/" target="_blank" rel="noopener noreferrer">University of Arizona</a>
+          <a href="https://phoenixmed.arizona.edu/" target="_blank" rel="noopener noreferrer"><img src="/images/logos/arizona.svg" alt="University of Arizona College of Medicine – Phoenix" /></a>
         </div>
       </Section>
 

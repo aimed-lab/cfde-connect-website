@@ -47,6 +47,14 @@ These live outside this app and are linked from the nav rather than rendered her
 | Service → Join / Collaborate | Google Form |
 | Portal (nav button) | <https://portal.cfdeconnect.org/> |
 
+### Chat widget
+
+A Copilot.live chat widget is embedded via a loader snippet at the bottom of
+`index.html`. It sits outside `#root`, so it mounts once and survives
+client-side route changes — do not move it into a React component. The token in
+the script URL is the public widget key. To change or remove the chatbot, edit
+that one snippet; nothing else in the app references it.
+
 ## Structure
 
 ```

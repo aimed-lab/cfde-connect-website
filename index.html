@@ -14,5 +14,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Copilot.live chat widget. Loaded once here rather than from React so it
+         survives client-side route changes and is not torn down by StrictMode's
+         double-invoked effects. The token is a public widget key. -->
+    <script type="application/javascript">
+      (function (w, d, s, o, f, js, fjs) {
+        w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
+        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+        js.id = o; js.src = f; js.async = 1; js.referrerPolicy = "origin";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(window, document, "script", "copilot", "https://script.copilot.live/v1/copilot.min.js?tkn=cat-72vvn6q3");
+      copilot("init", {});
+    </script>
   </body>
 </html>

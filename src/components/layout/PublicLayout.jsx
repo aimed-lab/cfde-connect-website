@@ -17,7 +17,6 @@ const CORES = [
 
 const SERVICE = [
   { label: 'Join / Collaborate', href: 'https://forms.gle/8T5W9BnLo5Vzz5Gt5', note: 'Google Form — external' },
-  { label: 'Talent Knowledge Graph', href: 'https://cfdegraph.vercel.app/', note: 'cfdegraph.vercel.app — external' },
 ];
 
 function Chevron() {

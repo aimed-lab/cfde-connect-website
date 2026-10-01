@@ -86,6 +86,13 @@ ring of 18 Common Fund DCC programs, each linking to its page on `info.cfde.clou
 geometry — 280px ring radius, per-petal offsets and rotations — mirrors the original plugin.
 The wheel is a fixed 700×700 frame that scales down on narrow viewports.
 
+It also appears site-wide behind a floating button (`WheelFab.jsx`, mounted in the layout),
+stacked directly above the Copilot chat bubble, as on info.cfde.cloud. Clicking it opens the
+wheel in a dialog that fits it to the viewport; Escape, the close button, or a click on empty
+space dismisses it. The button's position (`right:20px; bottom:90px`) is derived from the chat
+bubble's — fixed 56×56 at 20px from the corner — so if the Copilot widget's placement changes,
+update `.wheelfab` in `index.css` to match.
+
 ## Notes
 
 - The Sustainability Core is co-led by UCLA and the University of Arizona, so four institution

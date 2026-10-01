@@ -509,13 +509,8 @@ a{color:var(--blue-dark)}
   gap:clamp(28px,6vw,64px);
 }
 .partners img{height:56px; width:auto; object-fit:contain}
-/* Stand-in for a partner with no logo asset yet — sized to sit level with the marks. */
-.partners__name{
-  display:inline-flex; align-items:center; height:56px;
-  font-size:1.02rem; font-weight:700; letter-spacing:-.01em; color:var(--navy-700);
-  text-decoration:none; text-align:center; max-width:190px; line-height:1.25;
-}
-.partners__name:hover{color:var(--blue-dark)}
+/* The Arizona mark is a wide wordmark; cap it so it doesn't dwarf the others. */
+.partners img[src$="arizona.svg"]{height:46px}
 
 /* ── Closing CTA ─────────────────────────────────────────── */
 .closing{

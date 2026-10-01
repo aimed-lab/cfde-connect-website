@@ -88,10 +88,11 @@ The wheel is a fixed 700×700 frame that scales down on narrow viewports.
 
 ## Notes
 
-- The Sustainability Core is co-led by UCLA and the University of Arizona. Arizona currently
-  renders as a text wordmark in the homepage partner strip because there is no logo asset yet —
-  drop an approved mark from <https://brand.arizona.edu/> into `public/images/logos/arizona.png`
-  and swap the `.partners__name` link in `src/pages/Home.jsx` for an `<img>`.
+- The Sustainability Core is co-led by UCLA and the University of Arizona, so four institution
+  marks appear in the homepage partner strip. The Arizona asset is the College of Medicine –
+  Phoenix lockup (Peipei Ping's unit), taken from that college's own site. Its paths use
+  `currentColor`, which would fall back to black when the file is used standalone in an `<img>`,
+  so the root element carries `color="#012043"` (Arizona blue) to resolve it to the brand colour.
 - Deployment target is any static host; `npm run build` output in `dist/` is all that is needed.
   Configure the host to rewrite unknown paths to `index.html` so client-side routes resolve.
 - The portal/member area is not part of this project and will be added separately.

@@ -82,7 +82,10 @@ hexagon accents. Typography is Inter throughout.
 
 `CfdeWheel.jsx` is a native React port of the `cfde-wheel` WordPress plugin used on the
 original site. Five center petals (Cloud, Knowledge, Training, Data, Coordination) sit inside a
-ring of 18 Common Fund DCC programs, each linking to its page on `info.cfde.cloud`. The
+ring of 19 Common Fund DCC programs, each linking to its page under `cfde.cloud/info/dcc/`
+(petals link to `cfde.cloud/info/centers/`). The program list follows the live wheel on
+info.cfde.cloud — the WordPress plugin was missing KOMP2, which uses the IMPC logo. Note that the
+older `info.cfde.cloud/dcc/…` and `/centers/…` URLs now return 404. The
 geometry — 280px ring radius, per-petal offsets and rotations — mirrors the original plugin.
 The wheel is a fixed 700×700 frame that scales down on narrow viewports.
 

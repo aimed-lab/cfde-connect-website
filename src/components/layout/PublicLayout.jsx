@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import WheelFab from '@/components/WheelFab';
 
 const MEETINGS = [
   { label: 'CFDE Fall 2026 Meeting', href: 'https://fall2026.cfdeconnect.org/', note: 'October 13–14, 2026 · UC San Diego' },
@@ -229,6 +230,7 @@ export default function PublicLayout() {
         <Outlet />
       </main>
       <Footer />
+      <WheelFab />
     </>
   );
 }

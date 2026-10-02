@@ -503,6 +503,57 @@ a{color:var(--blue-dark)}
   .wheel{transform:scale(.48); margin-bottom:-364px}
 }
 
+/* ── Floating CFDE wheel button + dialog ─────────────────── */
+/* Stacks directly above the Copilot chat bubble, which is fixed 56x56 at
+   20px from the bottom-right corner on z-index 2147483647. This button sits
+   one layer below it so an opened chat panel covers it, and one layer above
+   the dialog so it keeps working as a toggle while the wheel is open. */
+.wheelfab{
+  position:fixed; right:20px; bottom:90px; z-index:2147483000;
+  width:56px; height:56px; padding:0; border-radius:50%;
+  display:grid; place-items:center; cursor:pointer;
+  background:#fff; border:1px solid var(--line);
+  box-shadow:0 6px 20px rgba(19,42,68,.22);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.wheelfab:hover{transform:scale(1.06); box-shadow:0 10px 26px rgba(19,42,68,.28)}
+.wheelfab img{width:44px; height:44px}
+.wheelfab.is-open{box-shadow:0 0 0 3px var(--teal-light), 0 6px 20px rgba(19,42,68,.22)}
+.wheelfab__tip{
+  position:absolute; right:calc(100% + 10px); top:50%; transform:translateY(-50%);
+  background:var(--navy-800); color:#fff; font-size:.8rem; font-weight:600; white-space:nowrap;
+  padding:6px 10px; border-radius:8px; opacity:0; pointer-events:none; transition:opacity .15s ease;
+}
+.wheelfab:hover .wheelfab__tip, .wheelfab:focus-visible .wheelfab__tip{opacity:1}
+.wheelfab.is-open .wheelfab__tip{opacity:0}
+
+.wheelmodal{
+  position:fixed; inset:0; z-index:2147482000;
+  display:grid; place-items:center;
+  background:rgba(13,31,51,.74);
+  backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px);
+  animation:wheelmodal-in .2s ease;
+}
+/* Empty space inside the wheel's square frame passes clicks through to the
+   backdrop, so clicking anywhere that isn't a petal or program closes it. */
+.wheelmodal__frame{position:relative; pointer-events:none}
+.wheelmodal__frame a{pointer-events:auto}
+.wheelmodal__scaled{width:700px; height:700px; transform-origin:top left}
+/* Undo the homepage section's breakpoint scaling; the dialog fits the wheel to the viewport itself. */
+.wheelmodal .wheel{transform:none; margin-bottom:0}
+.wheelmodal__close{
+  position:fixed; top:16px; right:16px; width:44px; height:44px; border-radius:50%;
+  display:grid; place-items:center; cursor:pointer;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); color:#fff;
+}
+.wheelmodal__close:hover{background:rgba(255,255,255,.22)}
+.wheelmodal__close svg{width:20px; height:20px; stroke:currentColor; stroke-width:2.4; fill:none; stroke-linecap:round}
+@keyframes wheelmodal-in{from{opacity:0} to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .wheelmodal{animation:none}
+  .wheelfab, .wheelfab__tip{transition:none}
+}
+
 /* ── Partner logos ───────────────────────────────────────── */
 .partners{
   display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
@@ -604,7 +655,7 @@ a{color:var(--blue-dark)}
 
 /* Print */
 @media print{
-  .topbar,.hero__mesh,.hero__actions,.closing{display:none}
+  .topbar,.hero__mesh,.hero__actions,.closing,.wheelfab,.wheelmodal{display:none}
   body{color:#000}
   .hero{background:#fff; color:#000; padding:20px 0}
   .hero__title,.hero__facts dd{color:#000}

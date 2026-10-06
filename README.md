@@ -21,6 +21,19 @@ npm run preview   # serve the production build locally
 npm run lint      # eslint
 ```
 
+## Branches and deployment
+
+Hosted on Vercel; each branch deploys to its own address.
+
+| Branch | Address | Purpose |
+| --- | --- | --- |
+| `main` | <https://cfdeconnect.org> | Production — the public site |
+| `dev` | <https://dev.cfdeconnect.org> | Staging — review changes here before they go live |
+
+Workflow: all changes are committed to `dev`. Check them on dev.cfdeconnect.org, then open a
+pull request from `dev` into `main`. Merging it publishes to cfdeconnect.org. Don't commit
+directly to `main`, and keep `dev` up to date with `main` after each merge.
+
 ## Routes
 
 | Path | Page |
@@ -105,6 +118,11 @@ update `.wheelfab` in `index.css` to match.
   so the root element carries `color="#012043"` (Arizona blue) to resolve it to the brand colour.
 - Deployment target is any static host; `npm run build` output in `dist/` is all that is needed.
   Configure the host to rewrite unknown paths to `index.html` so client-side routes resolve.
+- cfdeconnect.org used to be a WordPress site. `vercel.json` permanently (308) redirects its old
+  page addresses — e.g. `/administrative-core/` → `/cores/administrative` — so existing links,
+  bookmarks and search results land on the matching new page. Each is listed with and without the
+  trailing slash. `/news/` and `/calendar/` need no redirect: the paths are unchanged. Old media
+  links (`/wp-content/uploads/…`) have no equivalent and will 404.
 - The portal/member area is not part of this project and will be added separately.
 
 Supported by the NIH Common Fund CFDE program (Grant # U54OD036472).

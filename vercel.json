@@ -1,5 +1,100 @@
 {
+  "redirects": [
+    {
+      "source": "/administrative-core",
+      "destination": "/cores/administrative",
+      "permanent": true
+    },
+    {
+      "source": "/administrative-core/",
+      "destination": "/cores/administrative",
+      "permanent": true
+    },
+    {
+      "source": "/evaluation-core",
+      "destination": "/cores/evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/evaluation-core/",
+      "destination": "/cores/evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/sustainability",
+      "destination": "/cores/sustainability",
+      "permanent": true
+    },
+    {
+      "source": "/sustainability/",
+      "destination": "/cores/sustainability",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-spring-2026-meeting-recap",
+      "destination": "/meetings/spring-2026-recap",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-spring-2026-meeting-recap/",
+      "destination": "/meetings/spring-2026-recap",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-fall-2025-meeting-recap",
+      "destination": "/meetings/fall-2025-recap",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-fall-2025-meeting-recap/",
+      "destination": "/meetings/fall-2025-recap",
+      "permanent": true
+    },
+    {
+      "source": "/fall2025",
+      "destination": "/meetings/fall-2025-recap",
+      "permanent": true
+    },
+    {
+      "source": "/fall2025/",
+      "destination": "/meetings/fall-2025-recap",
+      "permanent": true
+    },
+    {
+      "source": "/spring25",
+      "destination": "/meetings/spring-2025",
+      "permanent": true
+    },
+    {
+      "source": "/spring25/",
+      "destination": "/meetings/spring-2025",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-2024-fall-meeting",
+      "destination": "/meetings/fall-2024",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-2024-fall-meeting/",
+      "destination": "/meetings/fall-2024",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-at-ashg-2025-fostering-collaboration-and-community-connections",
+      "destination": "/news/cfde-at-ashg-2025",
+      "permanent": true
+    },
+    {
+      "source": "/cfde-at-ashg-2025-fostering-collaboration-and-community-connections/",
+      "destination": "/news/cfde-at-ashg-2025",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

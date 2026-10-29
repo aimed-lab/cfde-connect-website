@@ -49,10 +49,10 @@ export default function Home() {
               Join / Collaborate
               <ArrowIcon />
             </a>
-            <a className="btn btn--ghost" href="https://fall2026.cfdeconnect.org/" target="_blank" rel="noopener noreferrer">
-              CFDE Fall 2026 Meeting
+            <Link className="btn btn--ghost" to="/meetings/fall-2026-recap">
+              Fall 2026 Meeting Recap
               <ArrowIcon />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

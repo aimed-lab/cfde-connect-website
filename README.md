@@ -39,6 +39,7 @@ directly to `main`, and keep `dev` up to date with `main` after each merge.
 | Path | Page |
 | --- | --- |
 | `/` | Home — mission, interactive CFDE wheel, cores, partners |
+| `/meetings/fall-2026-recap` | CFDE Fall 2026 Meeting Recap (dashboard, session summaries, survey, photos) |
 | `/meetings/spring-2026-recap` | CFDE Spring 2026 Meeting Recap |
 | `/meetings/fall-2025-recap` | CFDE Fall 2025 Meeting Recap |
 | `/meetings/spring-2025` | CFDE Spring 2025 Meeting |
@@ -56,7 +57,6 @@ These live outside this app and are linked from the nav rather than rendered her
 
 | Link | Destination |
 | --- | --- |
-| Meetings → CFDE Fall 2026 Meeting | <https://fall2026.cfdeconnect.org/> |
 | Service → Join / Collaborate | Google Form |
 | Portal (nav button) | <https://portal.cfdeconnect.org/> |
 
@@ -79,6 +79,8 @@ src/
   components/
     layout/PublicLayout.jsx   header with dropdown nav, footer, scroll restoration
     CfdeWheel.jsx             interactive CFDE ecosystem wheel
+    Agenda.jsx                day → session tabbed agenda for meeting recaps
+    charts.jsx                BarChart and DotPlot for meeting dashboards
     shared.jsx                PageHero, Section, Stats, Session, Person, ...
   pages/                      one component per route
   index.css                   the whole design system (CSS custom properties)

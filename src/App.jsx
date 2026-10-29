@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import PublicLayout from '@/components/layout/PublicLayout';
 import Home from '@/pages/Home';
+import Fall2026Recap from '@/pages/meetings/Fall2026Recap';
 import Spring2026Recap from '@/pages/meetings/Spring2026Recap';
 import Fall2025Recap from '@/pages/meetings/Fall2025Recap';
 import Spring2025 from '@/pages/meetings/Spring2025';
@@ -21,7 +22,7 @@ function App() {
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
 
-          {/* Fall 2026 lives on its own site at fall2026.cfdeconnect.org */}
+          <Route path="/meetings/fall-2026-recap" element={<Fall2026Recap />} />
           <Route path="/meetings/spring-2026-recap" element={<Spring2026Recap />} />
           <Route path="/meetings/fall-2025-recap" element={<Fall2025Recap />} />
           <Route path="/meetings/spring-2025" element={<Spring2025 />} />

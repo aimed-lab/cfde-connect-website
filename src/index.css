@@ -614,8 +614,104 @@ a{color:var(--blue-dark)}
 .foot__legal p:last-child{margin:0}
 .foot__legal a{color:#a9c1d4}
 
+/* ── Meeting dashboard ───────────────────────────────────── */
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+.dash{display:grid; grid-template-columns:minmax(220px,1fr) 2.2fr; gap:22px; align-items:stretch}
+/* The one hero figure on the page — same sans as everything else, proportional figures. */
+.dash__hero{
+  display:flex; flex-direction:column; justify-content:center; gap:6px;
+  background:linear-gradient(140deg,var(--navy-800),var(--navy-700)); color:#fff;
+  border-radius:var(--radius); padding:clamp(24px,3.5vw,34px); box-shadow:var(--shadow-md);
+}
+.dash__heroval{font-size:clamp(3.2rem,8vw,4.6rem); font-weight:800; letter-spacing:-.03em; line-height:1}
+.dash__herolabel{font-size:1.1rem; font-weight:650}
+.dash__herosub{font-size:.88rem; color:#a9c5da; line-height:1.5}
+.dash .stats{grid-template-columns:repeat(3,1fr)}
+.dash__note{margin:14px 0 0; font-size:.84rem; color:var(--ink-soft)}
+
+.chart-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:28px; align-items:start}
+
+/* ── Charts (single series: one colour, direct labels, hover/focus tooltip, table view) ── */
+.chart{
+  margin:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(18px,2.6vw,26px); box-shadow:var(--shadow-sm); min-width:0;
+}
+.chart__head{display:grid; gap:3px; margin-bottom:16px}
+.chart__title{font-size:1.04rem; font-weight:700; color:var(--navy-800)}
+.chart__sub{font-size:.84rem; color:var(--ink-soft)}
+
+.hbar{list-style:none; margin:0; padding:0; display:grid; gap:4px}
+.hbar__row{
+  position:relative; display:grid; grid-template-columns:minmax(0,12.5rem) 1fr; align-items:center; gap:12px;
+  padding:5px 8px; margin-inline:-8px; border-radius:8px; outline-offset:0;
+}
+.hbar__row:hover, .hbar__row:focus-visible{background:var(--tint)}
+.hbar__label{font-size:.88rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+/* The track is only layout; the baseline is the single hairline on its left edge. */
+.hbar__track{display:flex; align-items:center; gap:8px; min-width:0; border-left:1px solid var(--line); min-height:22px}
+.hbar__bar{height:14px; background:var(--blue); border-radius:0 4px 4px 0; min-width:3px; flex:none}
+.hbar__value{font-size:.84rem; font-weight:650; color:var(--ink); font-variant-numeric:tabular-nums}
+
+.dotplot__axis, .dotplot__row{display:grid; grid-template-columns:minmax(0,13.5rem) 1fr 2.4rem; align-items:center; gap:12px}
+.dotplot__axis{margin-bottom:2px}
+.dotplot__rows{list-style:none; margin:0; padding:0; display:grid; gap:2px}
+.dotplot__row{position:relative; padding:5px 8px; margin-inline:-8px; border-radius:8px; outline-offset:0}
+.dotplot__row:hover, .dotplot__row:focus-visible{background:var(--tint)}
+.dotplot__label{font-size:.86rem; color:var(--ink); line-height:1.35}
+.dotplot__scale{position:relative; height:24px; margin-inline:6px}
+.dotplot__axis .dotplot__scale{height:16px}
+.dotplot__tick{position:absolute; top:0; transform:translateX(-50%); font-size:.74rem; color:var(--ink-soft); font-variant-numeric:tabular-nums}
+.dotplot__grid{position:absolute; top:0; bottom:0; width:1px; background:var(--line)}
+/* 10px dot with a 2px surface ring so it stays legible where it crosses a gridline. */
+.dotplot__dot{
+  position:absolute; top:50%; width:10px; height:10px; border-radius:50%;
+  background:var(--blue); box-shadow:0 0 0 2px #fff; transform:translate(-50%,-50%);
+}
+.dotplot__value{font-size:.84rem; font-weight:650; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums}
+
+/* Tooltip: adds context to a value that is already printed — it never gates it. */
+.chart__tip{
+  position:absolute; right:8px; bottom:calc(100% - 2px); z-index:5;
+  background:var(--navy-900); color:#cfe0ee; font-size:.78rem; line-height:1.4;
+  padding:6px 10px; border-radius:8px; white-space:nowrap; pointer-events:none;
+  opacity:0; transform:translateY(3px); transition:opacity .12s ease, transform .12s ease;
+}
+.chart__tip b{color:#fff; font-weight:700}
+.hbar__row:hover .chart__tip, .hbar__row:focus-visible .chart__tip,
+.dotplot__row:hover .chart__tip, .dotplot__row:focus-visible .chart__tip{opacity:1; transform:none}
+
+.chart__table{margin-top:14px; font-size:.86rem}
+.chart__table summary{cursor:pointer; color:var(--blue-dark); font-weight:600; width:fit-content}
+.chart__table table{width:100%; border-collapse:collapse; margin-top:10px}
+.chart__table th, .chart__table td{text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); font-weight:400}
+.chart__table thead th{font-weight:650; color:var(--navy-800)}
+.chart__table td{font-variant-numeric:tabular-nums}
+
+/* Organisation list — institutions only, never people. */
+.orgs{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px}
+.orgs li{
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:6px 13px; font-size:.86rem; color:var(--navy-700);
+}
+
+/* Captioned photo gallery */
+.gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px}
+.gallery figure{margin:0}
+.gallery img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-sm);
+  border:1px solid var(--line); box-shadow:var(--shadow-sm); background:var(--tint);
+}
+.gallery figcaption{margin-top:8px; font-size:.86rem; color:var(--ink-soft); line-height:1.45}
+.gallery__wide{grid-column:1 / -1}
+.gallery__wide img{aspect-ratio:auto; max-height:560px}
+
+@media (prefers-reduced-motion:reduce){ .chart__tip{transition:none} }
+
 /* ═══════════════ Responsive ═══════════════ */
 @media (max-width:900px){
+  .dash, .chart-grid{grid-template-columns:1fr}
+  .dash .stats{grid-template-columns:repeat(2,1fr)}
   .regcard{grid-template-columns:1fr}
   .venue{grid-template-columns:1fr}
   .grid-2, .grid-3{grid-template-columns:1fr}
@@ -624,6 +720,11 @@ a{color:var(--blue-dark)}
 }
 
 @media (max-width:760px){
+  .hbar__row{grid-template-columns:minmax(0,8rem) 1fr}
+  .hbar__label{white-space:normal; line-height:1.25}
+  .dotplot__axis, .dotplot__row{grid-template-columns:minmax(0,8.5rem) 1fr 2.2rem; gap:8px}
+  .dotplot__label{font-size:.8rem}
+  .chart__tip{white-space:normal; max-width:240px}
   .navtoggle{display:block}
   .nav{
     position:absolute; left:0; right:0; top:100%;

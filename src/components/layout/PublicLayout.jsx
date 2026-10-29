@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import WheelFab from '@/components/WheelFab';
 
 const MEETINGS = [
-  { label: 'CFDE Fall 2026 Meeting', href: 'https://fall2026.cfdeconnect.org/', note: 'October 13–14, 2026 · UC San Diego' },
+  { label: 'CFDE Fall 2026 Meeting Recap', to: '/meetings/fall-2026-recap', note: 'October 13–14, 2026 · UC San Diego' },
   { label: 'CFDE Spring 2026 Meeting Recap', to: '/meetings/spring-2026-recap', note: 'March 24–25, 2026 · Rockville, MD' },
   { label: 'CFDE Fall 2025 Meeting Recap', to: '/meetings/fall-2025-recap', note: 'October 27–28, 2025' },
   { label: 'CFDE Spring 2025 Meeting', to: '/meetings/spring-2025', note: 'March 25–26, 2025 · Bethesda, MD' },

@@ -288,7 +288,7 @@ export default function Fall2026Recap() {
             </div>
             <div>
               <dt>Format</dt>
-              <dd>In person &amp; on Zoom<span>Hosted by Shankar Subramaniam, UC San Diego</span></dd>
+              <dd>In person &amp; on Zoom<span>Hosted by Jake Chen (UAB) and Shankar Subramaniam (UC&nbsp;San&nbsp;Diego)</span></dd>
             </div>
           </dl>
         </div>

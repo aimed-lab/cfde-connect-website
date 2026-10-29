@@ -4,30 +4,9 @@
  * Both are single-series, so every mark wears one colour (--blue, validated
  * against the white and tinted section surfaces) and there is no legend box —
  * the chart title names what is plotted. Each value is also printed as a
- * direct label, the hover/focus tooltip only adds context, and a table view
- * carries every number for readers who can't use the graphic.
+ * direct label and in each row's accessible name; the hover/focus tooltip
+ * only adds context.
  */
-
-function TableView({ caption, columns, rows }) {
-  return (
-    <details className="chart__table">
-      <summary>View as table</summary>
-      <table>
-        <caption className="sr-only">{caption}</caption>
-        <thead>
-          <tr>{columns.map((c) => <th key={c} scope="col">{c}</th>)}</tr>
-        </thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r[0]}>
-              {r.map((cell, i) => (i === 0 ? <th key={i} scope="row">{cell}</th> : <td key={i}>{cell}</td>))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </details>
-  );
-}
 
 /*
  * Horizontal bars, one per category, sorted by the caller.
@@ -60,7 +39,6 @@ export function BarChart({ title, subtitle, rows, unit, total }) {
           );
         })}
       </ul>
-      <TableView caption={title} columns={['', unit]} rows={rows.map((r) => [r.label, r.value])} />
     </figure>
   );
 }
@@ -106,11 +84,6 @@ export function DotPlot({ title, subtitle, rows, min = 1, max = 5 }) {
           })}
         </ul>
       </div>
-      <TableView
-        caption={title}
-        columns={['Question', 'Average (1–5)', 'Rated 4–5', 'Responses']}
-        rows={rows.map((r) => [r.label, r.mean.toFixed(2), r.top, r.n])}
-      />
     </figure>
   );
 }

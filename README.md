@@ -79,6 +79,8 @@ src/
   components/
     layout/PublicLayout.jsx   header with dropdown nav, footer, scroll restoration
     CfdeWheel.jsx             interactive CFDE ecosystem wheel
+    Agenda.jsx                day → session tabbed agenda for meeting recaps
+    charts.jsx                BarChart and DotPlot for meeting dashboards
     shared.jsx                PageHero, Section, Stats, Session, Person, ...
   pages/                      one component per route
   index.css                   the whole design system (CSS custom properties)

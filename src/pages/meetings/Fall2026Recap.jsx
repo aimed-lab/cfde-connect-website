@@ -267,9 +267,9 @@ const PHOTOS = '/images/meetings/fall2026';
 // order they were announced at the wrap-up. `photo` is a file in PHOTOS; without one the
 // card shows the person's initials.
 const WINNERS = [
-  { name: 'Jeremy Yang', org: 'University of New Mexico', role: 'Illuminating the Druggable Genome (IDG)' },
-  { name: 'James Carson', org: 'Texas Advanced Computing Center (TACC)', role: 'CFDE Cloud Workspace' },
-  { name: 'Shava Smallen', org: 'San Diego Supercomputer Center, UC San Diego', role: 'CFDE Cloud Workspace' },
+  { name: 'Jeremy Yang', photo: 'winner-jeremy-yang.jpg', org: 'University of New Mexico', role: 'Illuminating the Druggable Genome (IDG)' },
+  { name: 'James Carson', photo: 'winner-james-carson.jpg', org: 'Texas Advanced Computing Center (TACC)', role: 'CFDE Cloud Workspace' },
+  { name: 'Shava Smallen', photo: 'winner-shava-smallen.jpg', org: 'San Diego Supercomputer Center, UC San Diego', role: 'CFDE Cloud Workspace' },
 ];
 
 const initials = (name) => name.split(' ').map((w) => w[0]).join('');
@@ -455,7 +455,7 @@ export default function Fall2026Recap() {
         id="awards"
         kicker="Participation awards"
         title="Meeting portal leaderboard"
-        lede="The meeting portal kept a live leaderboard of attendee activity. With the organizers excluded, these three were the most active participants — announced at the wrap-up, each wins a souvenir prize."
+        lede="The meeting portal kept a live leaderboard of attendee activity. With the organizers excluded, these three were the most active participants."
       >
         <div className="people winners">
           {WINNERS.map((w) => (
@@ -470,6 +470,7 @@ export default function Fall2026Recap() {
             </div>
           ))}
         </div>
+        <p className="finenote">Photos courtesy of UNM Health Sciences, TACC and SDSC.</p>
       </Section>
 
       {/* ══════ What's next ══════ */}

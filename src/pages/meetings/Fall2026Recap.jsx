@@ -254,7 +254,7 @@ const DAYS = [
         where: 'Atkinson Pavilion · 2:30 PM',
         who: 'Christy Kano (NIH) & Jake Chen (UAB)',
         points: [
-          'Thanks to the host team and AV crew, and congratulations to the meeting-portal leaderboard winners — Jeremy Yang, James Carson and Shava Smallen.',
+          <>Thanks to the host team and AV crew, and congratulations to the meeting-portal leaderboard winners — Jeremy Yang, James Carson and Shava Smallen (see <a href="#awards">Participation awards</a>).</>,
         ],
       },
     ],
@@ -262,6 +262,17 @@ const DAYS = [
 ];
 
 const PHOTOS = '/images/meetings/fall2026';
+
+// Top three on the meeting portal's activity leaderboard (organizers excluded), in the
+// order they were announced at the wrap-up. `photo` is a file in PHOTOS; without one the
+// card shows the person's initials.
+const WINNERS = [
+  { name: 'Jeremy Yang', photo: 'winner-jeremy-yang.jpg', org: 'University of New Mexico', role: 'Illuminating the Druggable Genome (IDG)' },
+  { name: 'James Carson', photo: 'winner-james-carson.jpg', org: 'Texas Advanced Computing Center (TACC)', role: 'CFDE Cloud Workspace' },
+  { name: 'Shava Smallen', photo: 'winner-shava-smallen.jpg', org: 'San Diego Supercomputer Center, UC San Diego', role: 'CFDE Cloud Workspace' },
+];
+
+const initials = (name) => name.split(' ').map((w) => w[0]).join('');
 
 export default function Fall2026Recap() {
   return (
@@ -438,8 +449,32 @@ export default function Fall2026Recap() {
         <p className="finenote">No respondent's familiarity with CFDE went down; four of ten rose by at least one star.</p>
       </Section>
 
+      {/* ══════ Participation awards ══════ */}
+      <Section
+        tint
+        id="awards"
+        kicker="Participation awards"
+        title="Meeting portal leaderboard"
+        lede="The meeting portal kept a live leaderboard of attendee activity. With the organizers excluded, these three were the most active participants."
+      >
+        <div className="people winners">
+          {WINNERS.map((w) => (
+            <div className="person winner" key={w.name}>
+              {w.photo
+                ? <img src={`${PHOTOS}/${w.photo}`} alt={w.name} />
+                : <span className="winner__initials" aria-hidden="true">{initials(w.name)}</span>}
+              <p className="winner__badge"><span aria-hidden="true">🏆 </span>Top 3</p>
+              <h3>{w.name}</h3>
+              <p className="person__org">{w.org}</p>
+              <p>{w.role}</p>
+            </div>
+          ))}
+        </div>
+        <p className="finenote">Photos courtesy of UNM Health Sciences, TACC and SDSC.</p>
+      </Section>
+
       {/* ══════ What's next ══════ */}
-      <Section tint kicker="What's next" title="Action items & upcoming dates">
+      <Section kicker="What's next" title="Action items & upcoming dates">
         <div className="grid-cards">
           <div className="card"><h3 className="card__title"><span className="ico">📅</span>November 2026</h3><p>Council of Councils working-group orientation; BioData code-a-thon with the Training Center and Cloud Workspace at Cold Spring Harbor Laboratory.</p></div>
           <div className="card"><h3 className="card__title"><span className="ico">🧭</span>December 2026</h3><p>Two-day Council of Councils working-group workshop on CFDE's progress and next phase.</p></div>
@@ -459,7 +494,7 @@ export default function Fall2026Recap() {
       </Section>
 
       {/* ══════ Gallery ══════ */}
-      <Section kicker="Photos" title="Scenes from La Jolla">
+      <Section tint kicker="Photos" title="Scenes from La Jolla">
         <div className="gallery">
           <figure className="gallery__wide">
             <img src={`${PHOTOS}/scripps-pier.jpg`} alt="Early-morning view from the UC San Diego bluffs over Scripps Pier and La Jolla Shores, framed by a tree branch" loading="lazy" />

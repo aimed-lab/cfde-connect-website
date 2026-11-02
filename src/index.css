@@ -318,6 +318,20 @@ a{color:var(--blue-dark)}
 .person .person__org{margin:0 0 8px; font-size:.85rem; font-weight:650; color:var(--teal)}
 .person p{margin:0; font-size:.88rem; color:var(--ink-soft); line-height:1.5}
 
+/* Award winners: person cards with a badge, and initials when there's no photo yet. */
+.winners{max-width:none}
+.winner__initials{
+  display:grid; place-items:center; width:132px; height:132px; margin:0 auto 16px; border-radius:50%;
+  background:linear-gradient(135deg,var(--navy-700),var(--blue)); color:#fff;
+  font-size:2.5rem; font-weight:750; letter-spacing:.02em;
+  border:4px solid var(--tint); box-shadow:var(--shadow-sm);
+}
+.person .winner__badge{
+  display:inline-block; margin:0 0 10px; padding:4px 11px; border-radius:999px;
+  background:#fff3d1; color:#6e4b00; border:1px solid #f1d58a;
+  font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+}
+
 /* ── Stats (meeting dashboards) ──────────────────────────── */
 .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px}
 .stat{
